@@ -27,28 +27,28 @@
 // Base addresses for GPIO, PWM, PWM clock, and DMA controllers (physical, not bus!)
 // These will be "memory mapped" into virtual RAM so that they can be written and read directly.
 // -------------------------------------------------------------------------------------------------
-#define DMA_BASE		0x20007000
+#define DMA_BASE		0x3f007000
 #define DMA_LEN			0x24
-#define PWM_BASE		0x2020C000
+#define PWM_BASE		0x3f20C000
 #define PWM_LEN			0x28
-#define CLK_BASE	    0x20101000
+#define CLK_BASE	    0x3f101000
 #define CLK_LEN			0xA8
-#define GPIO_BASE		0x20200000
+#define GPIO_BASE		0x3f200000
 #define GPIO_LEN		0xB4
 
 // GPIO
 // -------------------------------------------------------------------------------------------------
-#define GPFSEL0			0x20200000			// GPIO function select, pins 0-9 (bits 30-31 reserved)
-#define GPFSEL1			0x20200004			// Pins 10-19
-#define GPFSEL2			0x20200008			// Pins 20-29
-#define GPFSEL3			0x2020000C			// Pins 30-39
-#define GPFSEL4			0x20200010			// Pins 40-49
-#define GPFSEL5			0x20200014			// Pins 50-53
-#define GPSET0			0x2020001C			// Set (turn on) pin
-#define GPCLR0			0x20200028			// Clear (turn off) pin
-#define GPPUD			0x20200094			// Internal pullup/pulldown resistor control
-#define GPPUDCLK0		0x20200098			// PUD clock for pins 0-31
-#define GPPUDCLK1		0x2020009C			// PUD clock for pins 32-53
+#define GPFSEL0			0x3f200000			// GPIO function select, pins 0-9 (bits 30-31 reserved)
+#define GPFSEL1			0x3f200004			// Pins 10-19
+#define GPFSEL2			0x3f200008			// Pins 20-29
+#define GPFSEL3			0x3f20000C			// Pins 30-39
+#define GPFSEL4			0x3f200010			// Pins 40-49
+#define GPFSEL5			0x3f200014			// Pins 50-53
+#define GPSET0			0x3f20001C			// Set (turn on) pin
+#define GPCLR0			0x3f200028			// Clear (turn off) pin
+#define GPPUD			0x3f200094			// Internal pullup/pulldown resistor control
+#define GPPUDCLK0		0x3f200098			// PUD clock for pins 0-31
+#define GPPUDCLK1		0x3f20009C			// PUD clock for pins 32-53
 
 // Memory offsets for the PWM clock register, which is undocumented! Please fix that, Broadcom!
 // -------------------------------------------------------------------------------------------------
