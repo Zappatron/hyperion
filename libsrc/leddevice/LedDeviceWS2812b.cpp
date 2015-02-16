@@ -566,7 +566,7 @@ void LedDeviceWS2812b::fatal(const char *fmt, ...)
 unsigned int LedDeviceWS2812b::mem_virt_to_phys(void *virt)
 {
 	unsigned int offset = (uint8_t *)virt - virtbase;
-	return page_map[offset >> PAGE_SHIFT].physaddr + (offset % PAGE_SIZE);
+	return (page_map[offset >> PAGE_SHIFT].physaddr + (offset % PAGE_SIZE))|0xC0000000;
 }
 
 // Translate from physical address to virtual
@@ -579,7 +579,7 @@ unsigned int LedDeviceWS2812b::mem_phys_to_virt(uint32_t phys)
 	{
 		if (page_map[i].physaddr == pg_addr)
 		{
-			return (uint32_t)virtbase + i * PAGE_SIZE + pg_offset;
+			return ((uint32_t)virtbase + i * PAGE_SIZE + pg_offset) | 0xC0000000;
 		}
 	}
 	fatal("Failed to reverse map phys addr %08x\n", phys);
